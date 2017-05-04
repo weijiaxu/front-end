@@ -1,0 +1,188 @@
+/**
+函数定义
+1:常见
+function functionName(parameters) {
+  执行的代码
+}
+
+2:把匿名函数赋值给一个变量，通过变量调用。
+var x = function (a, b) {return a * b};
+var z = x(4, 3);
+
+3:不推荐
+var myFunction = new Function("a", "b", "return a * b");
+var x = myFunction(4, 3);
+
+在 JavaScript 中，很多时候，你需要避免使用 new 关键字。
+
+4：
+提升（Hoisting）是 JavaScript 默认将当前作用域提升到前面去的的行为。
+提升（Hoisting）应用在变量的声明与函数的声明。
+JavaScript 中，函数及变量的声明都将被提升到函数的最顶部。
+JavaScript 中，变量可以在使用后声明，也就是变量可以先使用再声明。
+变量提升：函数声明和变量声明总是会被解释器悄悄地被"提升"到方法体的最顶部。
+JavaScript 只有声明的变量会提升，初始化的不会。
+因此，函数可以在声明之前调用：
+myFunction(5);
+
+function myFunction(y) {
+    return y * y;
+}
+使用表达式定义函数时无法提升。
+
+5：自调用函数:（立即执行函数表达式）
+(function () {
+    var x = "Hello!!";      // 我将调用自己
+})();
+
+6：
+arguments返回函数调用过程接收到的参数数组
+
+toString() 方法将函数作为一个字符串返回:
+实例
+function myFunction(a, b) {
+    return a * b;
+}
+var txt = myFunction.toString();
+
+函数定义作为对象的属性，称之为对象方法。
+函数如果用于创建新的对象，称之为对象的构造函数。
+
+7:
+JavaScript 函数参数
+JavaScript 函数对参数的值没有进行任何的检查。
+
+函数显式参数(Parameters)与隐式参数(Arguments)
+函数显式参数在函数定义时列出。
+函数隐式参数在函数调用时传递给函数真正的值。
+
+参数规则
+JavaScript 函数定义时显示参数没有指定数据类型。
+JavaScript 函数对隐式参数没有进行类型检测。
+JavaScript 函数对隐式参数的个数没有进行检测。
+
+如果函数在调用时未提供隐式参数，参数会默认设置为： undefined
+如果函数调用时设置了过多的参数，参数将无法被引用，因为无法找到对应的参数名。 只能使用 arguments 对象来调用。
+
+JavaScript 函数有个内置的对象 arguments 对象。
+argument 对象包含了函数调用的参数数组。
+实例
+x = findMax(1, 123, 500, 115, 44, 88);
+function findMax() {
+    var i, max = 0;
+    for (i = 0; i < arguments.length; i++) {
+        if (arguments[i] > max) {
+            max = arguments[i];
+        }
+    }
+    return max;
+}
+
+值传递在函数内部改变后不影响函数外部
+普通的值，变量
+
+引用传递函数内部改变后影响函数外部（传地址）
+指针，引用，对象，数组
+
+值传递(形式参数类型是基本数据类型)：：方法调用时，实际参数把它的值传递给对应的形式参数，形式参数只是用实际参数的值初始化自己的存储单元内容，是两个不同的存储单元，所以方法执行中形式参数值的改变不影响实际参数的值。
+
+引用传递：(形式参数类型是引用数据类型)：也称为传地址。方法调用时，实际参数是对象(或数组)，这时实际参数与形式参数指向同一个地址，在方法执行中，对形式参数的操作实际上就是对实际参数的操作，这个结果在方法结束后被保留了下来，所以方法执行中形式参数的改变将会影响实际参数。
+
+
+
+8：
+JavaScript 函数调用
+
+JavaScript 函数有 4 种调用方式。
+每种方式的不同方式在于 this 的初始化。
+
+作为一个函数调用，this指针指向全局对象window
+myFunction() 和 window.myFunction() 是一样的
+
+函数作为对象方法调用，会使得 this的值成为对象本身。
+
+使用构造函数调用函数
+如果函数调用前使用了 new 关键字,则是调用了构造函数。
+构造函数中 this 关键字没有任何的值。
+this 的值在函数调用时实例化对象(new object)时创建。
+
+作为函数方法调用函数
+在 JavaScript 中, 函数是对象。JavaScript 函数有它的属性和方法。
+call() 和 apply() 是预定义的函数方法。 两个方法可用于调用函数，两个方法的第一个参数必须是对象本身。
+
+实例
+function myFunction(a, b) {
+    return a * b;
+}
+myFunction.call(myObject, 10, 2);      // 返回 20
+myFunction.call(obj,arg1,arg2,...)
+
+实例
+function myFunction(a, b) {
+    return a * b;
+}
+myArray = [10,2];
+myFunction.apply(myObject, myArray);   // 返回 20
+myFunction.apply(obj,args)
+
+
+两个方法都使用了对象本身作为第一个参数。 两者的区别在于第二个参数： apply传入的是一个参数数组，也就是将多个参数组合成为一个数组传入，而call则作为call的参数传入（从第二个参数开始）。
+在 JavaScript 严格模式(strict mode)下, 在调用函数时第一个参数会成为 this 的值， 即使该参数不是一个对象。
+在 JavaScript 非严格模式(non-strict mode)下, 如果第一个参数的值是 null 或 undefined, 它将使用全局对象替代。
+通过 call() 或 apply() 方法你可以设置 this 的值, 且作为已存在对象的新方法调用。
+
+9：
+闭包
+
+JavaScript 变量可以是全局变量或局部变量。
+它们的作用域和生存期不同。
+私有变量可以用到闭包。
+闭包就是外部函数嵌套内部函数，内部函数作为外部函数的返回值。
+
+在web页面中全局变量属于 window 对象。
+全局变量可应用于页面上的所有脚本。
+局部变量只能用于定义它函数内部。对于其他的函数或脚本代码是不可用的。
+全局和局部变量即便名称相同，它们也是两个不同的变量。修改其中一个，不会影响另一个的值。
+//变量声明是如果不使用 var 关键字，那么它就是一个全局变量，即便它在函数内定义。
+
+全局变量的作用域是全局性的，即在整个JavaScript程序中，全局变量处处都在。
+而在函数内部声明的变量，只在函数内部起作用。这些变量是局部变量，作用域是局部性的；函数的参数也是局部性的，只在函数内部起作用。
+
+
+JavaScript 内嵌函数 
+所有函数都能访问全局变量。  
+所有函数都能访问它们上一层的作用域。
+JavaScript 支持嵌套函数。嵌套函数可以访问上一层的函数变量。
+
+
+计数器困境(计数器可以用但是不可以改)
+设想下如果你想统计一些数值，且该计数器在所有函数中都是可用的。
+var counter = 0;
+function add() {
+    counter += 1;
+}
+
+var add = (function () {
+    var counter = 0;
+    return function () {return counter += 1;}
+})();
+
+闭包是可访问上一层函数作用域里变量的函数，即便上一层函数已经关闭。
+
+
+
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+

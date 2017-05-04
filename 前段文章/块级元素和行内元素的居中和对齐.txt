@@ -1,0 +1,47 @@
+块元素对齐
+1:块元素居中
+块元素可以把左，右外边距设置为"自动"对齐。
+margin:0 auto;
+2：使用position（absolute,fixed）属性设置居中，左，右对齐
+例1:实现垂直水平居中
+<div class="container">
+  <div class="content"></div>
+</div>
+
+.container{postion:relative;}
+.content{position:absolute;top:50%;left:50;margin-top:-高度的一半；margin-left:-宽度的一半；或者（transform:translate(-50%,-50)）}
+
+例2：
+body
+{
+  margin:0;
+  padding:0;
+}
+.container
+{
+  position:relative;
+  width:100%;
+}
+.right
+{
+  position:absolute;
+  right:0px;
+  width:300px;
+  background-color:#b0e0e6;
+}
+3：使用float属性设置左，右对齐
+body
+{
+  margin:0;
+  padding:0;
+}
+.right
+{
+  float:right;
+  width:300px;
+  background-color:#b0e0e6;
+}
+
+
+文本,行内元素对齐
+text-align:

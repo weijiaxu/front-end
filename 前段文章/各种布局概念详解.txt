@@ -1,0 +1,119 @@
+http://www.cnblogs.com/carolina/p/5444187.html
+
+
+静态布局，自适应布局，流体式布局，响应式布局概念
+480px以下，480px-640px,640px-1024px,1024px以上
+
+static:静止的，不变的,not change or move  
+
+adaptive:能适应的， having the ability or tendency(常发生的行为，倾向) to adapt to different situations.
+
+liquid:像液体一样流动的，非固定形状和排列的
+
+responsive:迅速积极反应的, quick and favourable(有利的) to react
+
+layout:the way in which the parts are arranged(安排，排列)
+
+静态布局：元素不变的布局。
+
+布局特点：
+
+窗口缩小后内容被遮挡时，拖动滚动条显示布局
+
+设计方法：
+
+PC：居中布局，所有样式使用绝对宽度，高度
+
+移动设备：另外建立移动网站，以m.域名为域名
+
+自适应布局：创建多个静态布局，每个静态布局对应一个屏幕分辨率范围
+
+布局特点：
+
+改变屏幕分辨率可以切换不同的静态局部，在每个静态布局中，元素不发生变化，相当于静态布局的一个系列
+
+设计方法：
+
+使用媒体查询功能
+
+流体式布局：元素宽度按照分辨率宽度进行长度、宽度的调整，但布局不变
+
+缺点：
+
+如果屏幕尺度跨度过大，那么在相对原始设计而言过小或过大的屏幕上不能正常显示
+
+响应式布局：创建多个流体式布局，分别对应一个屏幕分辨率范围
+
+特点：
+
+分别为不同的屏幕分辨率定义布局，同时，在每个布局中，应用流式布局的理念，即页面元素宽度随着窗口调整而自动适配
+
+创建多个元素宽度是相对的的布局
+
+ 
+
+理想的响应式布局是指的对PC/移动各种终端进行响应的
+
+响应式布局基本样式
+
+兼容性和基本代码
+
+使用 respond.js解决IE6-IE8不支持CSS3的问题：<script src="respond.min.js">或者</script><script src="respond.src.js"></script>
+
+复制代码
+先写相同的大框架，部件等
+
+html,body{
+
+}
+
+下面写不同的布局
+
+@media only screen and (min-width:480px) and (max-width:640px){
+
+　　body{
+
+　　　　background:yellow;
+
+　　}
+
+}
+
+@media only screen and (min-width:640px) and (max-width:1024px){
+
+　　body{
+
+　　　　background:blue;
+
+　　}
+
+}
+
+@media only screen and (min-width:1024px){
+
+　　body{
+
+　　　　background:blue;
+
+　　}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

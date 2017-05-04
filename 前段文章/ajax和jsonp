@@ -1,0 +1,240 @@
+ajax异步获取数据，jsonp跨域获取数据。
+
+http://www.runoob.com/jquery/jquery-ajax-load.html
+http://www.runoob.com/ajax/ajax-xmlhttprequest-create.html
+http://www.runoob.com/json/json-jsonp.html
+
+Jsonp(JSON with Padding) 是 json的                  一种"使用模式"，可以让网页从别的域名（网站）那获取资料，即跨域读取数据。
+为什么我们从不同的域（网站）访问数据需要一个特殊的技术(JSONP )呢？这是因为同源策略。
+同源策略，它是由Netscape提出的一个著名的安全策略，现在所有支持JavaScript 的浏览器都会使用这个策略。
+
+客户端向服务器发送回调函数的函数名，服务器把回调函数的函数名和要处理的数据封装成字符串返回到客户端，
+（隐式：客户端调用回调函数处理返回的数据。）
+
+js原生ajax代码
+function load(method,url) {
+  var xmlhttp;
+  if (window.XMLHttpRequest)
+  {
+    //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+    xmlhttp=new XMLHttpRequest();
+  }
+  else
+  {
+    // IE6, IE5 浏览器执行代码
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+    //处理代码
+    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+    }
+  };
+  xmlhttp.open(method, url, true);
+  xmlhttp.send();
+}
+
+在jquery中调用ajax
+jQuery load() 方法
+jQuery load() 方法是简单但强大的 AJAX 方法。
+load() 方法从服务器加载数据，并把返回的数据放入被选元素中。
+语法:
+$(selector).load(URL,data,callback);
+
+必需的 URL 参数规定您希望加载的 URL。
+可选的 data 参数规定与请求一同发送的查询字符串键/值对集合。
+可选的 callback 参数是 load() 方法完成后所执行的函数名称。
+
+responseTxt - 包含调用成功时的结果内容
+statusTXT - 包含调用的状态
+xhr - 包含 XMLHttpRequest 对象
+示例：
+$("button").click(function(){
+$("#div1").load("demo_test.txt",function(responseTxt,statusTxt,xhr){
+if(statusTxt=="success")
+alert("外部内容加载成功!");
+if(statusTxt=="error")
+alert("Error: "+xhr.status+": "+xhr.statusText);
+});
+});
+
+$.get() 方法通过 HTTP GET 请求从服务器上请求数据。
+语法：
+$.get(URL,callback);
+必需的 URL 参数规定您希望请求的 URL。
+可选的 callback 参数是请求成功后所执行的函数名。
+下面的例子使用 $.get() 方法从服务器上的一个文件中取回数据：
+实例
+$("button").click(function(){
+  $.get("demo_test.php",function(data,status){
+    alert("数据: " + data + "\n状态: " + status);
+  });
+});
+
+$.post() 方法通过 HTTP POST 请求从服务器上请求数据。
+语法:
+$.post(URL,data,callback);
+必需的 URL 参数规定您希望请求的 URL。
+可选的 data 参数规定连同请求发送的数据。
+可选的 callback 参数是请求成功后所执行的函数名。
+下面的例子使用 $.post() 连同请求一起发送数据：
+实例
+$("button").click(function(){
+    $.post("/try/ajax/demo_test_post.php",
+    {
+        name:"菜鸟教程",
+        url:"http://www.runoob.com"
+    },
+        function(data,status){
+        alert("数据: \n" + data + "\n状态: " + status);
+    });
+});
+
+
+jsonp
+原生jsonp代码
+<script type="text/javascript">
+function callbackFunction(result)
+{
+    var html = '<ul>';
+    for(var i = 0; i < result.length; i++)
+    {html += '<li>' + result[i] + '</li>';}
+    html += '</ul>';
+    document.getElementById('divCustomers').innerHTML = html;
+}
+</script>
+<script type="text/javascript" src="http://www.runoob.com/try/ajax/jsonp.php?jsoncallback=callbackFunction"></script>
+
+jsonp.php 文件代码
+<?php
+header('Content-type: application/json');
+//获取回调函数名
+$jsoncallback = htmlspecialchars($_REQUEST ['jsoncallback']);
+//json数据
+$json_data = '["customername1","customername2"]';
+//输出jsonp格式的数据
+echo $jsoncallback . "(" . $json_data . ")";
+?>
+
+
+在jquery中调用jsonp
+<div id="divCustomers"></div>
+<script>
+$.getJSON("http://www.runoob.com/try/ajax/jsonp.php?jsoncallback=?", function(data) {
+    
+    var html = '<ul>';
+    for(var i = 0; i < data.length; i++)
+    {
+        html += '<li>' + data[i] + '</li>';
+    }
+    html += '</ul>';
+    
+    $('#divCustomers').html(html); 
+});
+</script>
+
+
+
+
+
+
+1：
+var xmlhttp;
+if (window.XMLHttpRequest)
+{
+    //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+    xmlhttp=new XMLHttpRequest();
+}
+else
+{
+    // IE6, IE5 浏览器执行代码
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+}
+
+2：XMLHttpRequest 对象用于和服务器交换数据。
+方法	                                描述
+open(method,url,async)	          规定请求的类型、URL 以及是否异步处理请求。
+method：请求的类型；GET 或 POST
+url：文件在服务器上的位置
+async：true（异步）或 false（同步）
+send(string）                                        将请求发送到服务器。
+string：仅用于 POST 请求
+
+GET 还是 POST？
+与 POST 相比，GET 更简单也更快，并且在大部分情况下都能用。
+然而，在以下情况中，请使用 POST 请求：
+无法使用缓存文件（更新服务器上的文件或数据库）
+向服务器发送大量数据（POST 没有数据量限制）
+发送包含未知字符的用户输入时，POST 比 GET 更稳定也更可靠
+
+xmlhttp.open("POST","/try/ajax/demo_post2.php",true);
+xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+xmlhttp.send("fname=Henry&lname=Ford");
+
+3：服务器响应
+如需获得来自服务器的响应，请使用 XMLHttpRequest 对象的 responseText 或 responseXML 属性。
+属性	          描述
+responseText	获得字符串形式的响应数据。
+responseXML 	获得 XML 形式的响应数据。
+
+
+例：
+document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+
+xmlDoc=xmlhttp.responseXML;
+txt="";
+x=xmlDoc.getElementsByTagName("ARTIST");
+for (i=0;i<x.length;i++)
+{
+    txt=txt + x[i].childNodes[0].nodeValue + "<br>";
+}
+document.getElementById("myDiv").innerHTML=txt;
+
+
+4：下面是 XMLHttpRequest 对象的三个重要的属性：
+属性	                     描述
+onreadystatechange	存储函数（或函数名），每当 readyState 属性改变时，就会调用该函数。
+readyState	        存有 XMLHttpRequest 的状态。从 0 到 4 发生变化。
+0: 请求未初始化
+1: 服务器连接已建立
+2: 请求已接收
+3: 请求处理中
+4: 请求已完成，且响应已就绪
+status	
+200: "OK"
+404: 未找到页面
+
+
+使用回调函数
+回调函数是一种以参数形式传递给另一个函数的函数。
+如果您的网站上存在多个 AJAX 任务，那么您应该为创建 XMLHttpRequest 对象编写一个标准的函数，并为每个 AJAX 任务调用该函数。
+该函数调用应该包含 URL 以及发生 onreadystatechange 事件时执行的任务（每次调用可能不尽相同）：
+实例
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

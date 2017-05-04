@@ -1,0 +1,155 @@
+/**
+HTML DOM 方法是我们可以在节点（HTML 元素）上执行的动作。
+
+getElementById()	返回带有指定 ID 的元素。
+getElementsByTagName()	返回包含带有指定标签名称的所有元素的节点列表（集合/节点数组）。
+getElementsByClassName()	返回包含带有指定类名的所有元素的节点列表。
+
+appendChild()	把新的子节点添加到指定节点。
+removeChild()	删除子节点.
+replaceChild()	替换子节点。
+
+insertBefore()	在指定的子节点前面插入新的子节点。
+
+createElement()	创建元素节点。
+createTextNode()	创建文本节点。
+
+createAttribute()	创建属性节点。
+getAttribute()	返回指定的属性值。
+setAttribute()	把指定属性设置或修改为指定的值。
+
+HTML DOM 属性是我们可以在节点（HTML 元素）获取，设置和修改的值。
+
+innerHTML 属性
+获取元素内容的最简单方法是使用 innerHTML 属性。
+innerHTML 属性对于获取或替换 HTML 元素的内容很有用。
+
+nodeName 属性规定节点的名称。
+nodeName 是只读的
+元素节点的 nodeName 与标签名相同
+属性节点的 nodeName 与属性名相同
+文本节点的 nodeName 始终是 #text
+文档节点的 nodeName 始终是 #document
+注意： nodeName 始终包含 HTML 元素的大写字母标签名。
+
+nodeValue 属性规定节点的值。
+元素节点的 nodeValue 是 undefined 或 null
+文本节点的 nodeValue 是文本本身
+属性节点的 nodeValue 是属性值
+
+nodeType 属性
+nodeType 属性返回节点的类型。nodeType 是只读的。
+比较重要的节点类型有：
+元素类型	NodeType
+元素	1
+属性	2
+文本	3
+注释	8
+文档	9
+
+
+通过可编程的对象模型，JavaScript获得了足够的能力来创建动态的 HTML。
+1:
+JavaScript 能够找到，添加或删除 HTML 元素
+1.1
+通过 id 找到 HTML 元素 
+var x=document.getElementById(id)
+通过类名找到 HTML 元素
+var x=document.getElementsByClassName(classname)
+通过标签名找到 HTML 元素
+var x=document.getElementsByTagName(tagname)
+
+1.2
+var para=document.createElement("p");
+var node=document.createTextNode("这是一个新段落。");
+para.appendChild(node);
+
+var element=document.getElementById("div1");
+element.appendChild(para);
+
+var parent=document.getElementById("div1");
+var child=document.getElementById("p1");
+parent.removeChild(child);
+
+如果能够在不引用父元素的情况下删除某个元素，就太好了。
+不过很遗憾。DOM 需要清楚您需要删除的元素，以及它的父元素。
+这是常用的解决方案：找到您希望删除的子元素，然后使用其 parentNode 属性来找到父元素：
+var child=document.getElementById("p1");
+child.parentNode.removeChild(child);
+
+
+2:
+JavaScript 改变 HTML 元素的内容 (innerHTML)
+document.getElementById(id).innerHTML=新的 HTML
+
+3:
+JavaScript 能够改变页面中的所有 HTML 属性(attribute)
+document.getElementById(id).attribute=新属性值
+demo：document.getElementById(id).href="./test.html"
+
+4:
+JavaScript 能够改变页面中的所有 CSS 样式(style.property)
+document.getElementById(id).style.property=新样式
+demo:document.getElementById("p2").style.color="blue";
+document.getElementById("p2").style.fontFamily="Arial";
+document.getElementById("p2").style.fontSize="larger";
+
+5:
+JavaScript 能够对页面中的所有事件做出反应
+demo:
+<input type="button" value="隐藏文本" onclick="document.getElementById('p1').style.visibility='hidden'" />
+<input type="button" value="显示文本" onclick="document.getElementById('p1').style.visibility='visible'" />
+
+<button type="button" onclick="document.getElementById('id1').style.color='red'">点我!</button>
+onclick="js语句"
+
+<button onclick="displayDate()">点这里</button>
+
+<script>
+document.getElementById("myBtn").onclick=function(){displayDate()};
+</script>
+
+document.getElementById(id).onmouseup=function(){this}
+this指针指向当前对象，你可以使用它的内容，属性，样式，事件
+
+document.getElementById(id).onmouseup=function(e){}
+
+element.addEventListener(event, function, useCapture);
+第一个参数是事件的类型 (如 "click" 或 "mousedown").
+第二个参数是事件触发后调用的函数。
+第三个参数是个布尔值用于描述事件是冒泡还是捕获。该参数是可选的。默认值为 false, 即冒泡传递，当值为 true 时, 事件使用捕获传递。
+element.removeElementLister(event,function,useCapture)
+对同一个对象绑定多个同种事件时，按绑定先后顺序执行。无论冒泡还是捕获。
+具有嵌套的多个元素先捕获到这个元素，再按绑定先后顺序执行，再冒泡向上。
+
+window.addEventListener("resize", function(){
+    document.getElementById("demo").innerHTML = sometext;
+});
+
+跨浏览器解决方法:
+var x = document.getElementById("myBtn");
+if (x.addEventListener) {                    // 所有主流浏览器，除了 IE 8 及更早版本
+    x.addEventListener("click", myFunction);
+} else if (x.attachEvent) {                  // IE 8 及更早版本
+    x.attachEvent("onclick", myFunction);
+}
+
+所谓的浏览器兼容性测试无非就是用一个浏览器有（支持）但另一个浏览器没有（不支持）的对象，属性，样式，事件去测。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/

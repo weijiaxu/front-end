@@ -1,0 +1,158 @@
+块级元素垂直方向排列，前后换行，可设置宽高内外边距，默认充满父元素，块级元素可以包含行内元素
+内联元素水平方向排列，前后不换行，不可设置宽高，内外边距上下无效，默认包裹内容(宽高随内容长短，大小变化而变化)，行内元素不可以包含块级元素。
+
+补充说明一个属性：display：inline-block；可以让元素具有块级元素和行内元素的特性：既可以设置长宽，可以让padding和margin生效，又可以和其他行内元素并排。是一个很实用的属性
+
+大多数 HTML 元素被定义为块级元素或内联元素。
+
+行级元素设置宽高后可能会溢出（overflow：visible,hidden,scroll,auto,inherit）,文本溢出（text-overflow：clip,ellipsis,string）
+
+
+
+
+标准模式下浏览器按照规范呈现页面；在混杂模式下，页面以一种比较宽松的向后兼容的方式显示。混杂模式通常模拟老式浏览器的行为以防止老站点无法工作。
+怎样区分标准模式和混杂模式
+浏览器根据DOCTYPE（文档声明）是否存在以及使用那种DTD来选择要使用的呈现方式。如果XHTML和HTML文档保航形式完整的DOCTYPE，那么它一般以标准模式呈现。相反，如果文档的DOCTYPE不存在或者形式不正确则导致HTML和XHTML以混杂模式呈现。
+
+
+
+HTML 区块元素
+实例: <h1>, <p>, <ul>, <li>,<table>,<tr>
+
+HTML 内联元素
+实例: <b>, <td>, <a>, <img>,<input>,select,textarea,
+
+
+HTML <div> 元素是块级元素，它可用于组合其他 HTML 元素的容器,用于布局和样式设置。
+
+HTML <span> 元素是内联元素，可用作文本的容器，用于为部分文本设置样式属性。
+
+
+1.行内元素与块级元素直观上的区别
+
+    行内元素会在一条直线上排列，都是同一行的，水平方向排列
+
+    块级元素各占据一行，垂直方向排列。块级元素从新行开始结束接着一个断行。
+
+2.块级元素可以包含行内元素和块级元素。行内元素不能包含块级元素。
+
+3.行内元素与块级元素属性的不同，主要是盒模型属性上
+
+行内元素设置width无效，height无效(可以设置line-height)，margin上下无效，padding上下无效
+
+
+
+内联元素（行内元素）内联元素(inline element)
+
+* a - 锚点
+* abbr - 缩写
+* acronym - 首字
+* b - 粗体(不推荐)
+* bdo - bidi override
+* big - 大字体
+* br - 换行
+* cite - 引用
+* code - 计算机代码(在引用源码的时候需要)
+* dfn - 定义字段
+* em - 强调
+* font - 字体设定(不推荐)
+* i - 斜体
+* img - 图片
+* input - 输入框
+* kbd - 定义键盘文本
+* label - 表格标签
+* q - 短引用
+* s - 中划线(不推荐)
+* samp - 定义范例计算机代码
+* select - 项目选择
+* small - 小字体文本
+* span - 常用内联容器，定义文本内区块
+* strike - 中划线
+* strong - 粗体强调
+* sub - 下标
+* sup - 上标
+* textarea - 多行文本输入框
+* tt - 电传文本
+* u - 下划线
+* var - 定义变量
+
+块元素(block element)
+* address - 地址
+* blockquote - 块引用
+* center - 举中对齐块
+* dir - 目录列表
+* div - 常用块级容易，也是css layout的主要标签
+* dl - 定义列表
+* fieldset - form控制组
+* form - 交互表单
+* h1 - 大标题
+* h2 - 副标题
+* h3 - 3级标题
+* h4 - 4级标题
+* h5 - 5级标题
+* h6 - 6级标题
+* hr - 水平分隔线
+* isindex - input prompt
+* menu - 菜单列表
+* noframes - frames可选内容，（对于不支持frame的浏览器显示此区块内容
+* noscript - ）可选脚本内容（对于不支持script的浏览器显示此内容）
+* ol - 排序表单
+* p - 段落
+* pre - 格式化文本
+* table - 表格
+* ul - 非排序列表
+
+可变元素
+可变元素为根据上下文语境决定该元素为块元素或者内联元素。
+
+* applet - java applet
+* button - 按钮
+* del - 删除文本
+* iframe - inline frame
+* ins - 插入的文本
+* map - 图片区块(map)
+* object - object对象
+* script - 客户端脚本
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
