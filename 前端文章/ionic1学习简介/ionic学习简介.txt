@@ -1,0 +1,168 @@
+一：ionic CSS
+1.ionic头部和底部
+bar 
+bar-header bar-footer bar-subheader
+bar-light bar-dark bar-stable bar-positive bar-calm bar-balanced bar-energized  bar-assertive bar-royal 
+
+2.ionic按钮
+按钮显示样式为：display: inline-block。
+button
+button-small button-middle(默认) button-large
+button-light button-dark button-stable button-positive button-calm button-balanced button-energized button-assertive button-royal
+icon-left icon-right
+button-full(不填充父元素的padding) button-block（填充元素的padding）
+button-outline（无背景有边框） button-clear（无背景无边框）
+
+<button class="button">
+  <i class="icon ion-loading-c"></i> Loading...
+</button>
+<button class="button icon-left ion-home">Home</button>
+
+<div class="bar bar-header">
+   <button class="button icon ion-navicon"></button>
+   <h1 class="title">Header Buttons</h1>
+   <button class="button">Edit</button>
+</div>
+
+
+
+3.ionic列表
+list list-insert
+item item-divider item-note badge
+item-icon-left item-icon-right item-button-left item-button-right
+item-avatar item-thumbnail-left item-thumbnail-right
+
+
+4.ionic卡片
+card 配合列表，列表项，表单或单独使用
+
+
+5.ionic表单和输入框
+
+
+6.ionic toggle(切换),radio,checkbox,range,select,
+
+
+7.ionic tab
+tabs tabs-icon-only tabs-icon-top tabs-icon-left 
+tabs-default ，tabs-light ，tabs-stable ，tabs-positive ，tabs-calm ，tabs-balanced ，tabs-energized ，tabs-assertive ，tabs-royal ，tabs-dark。
+tabs-item-hide tabs-top tabs-striped tabs-background-  tabs-color-
+tab-item 
+
+
+8.ionic 网格
+弹性盒子模型(Flexible Box Model) 
+row 样式指定行，col 样式指定列。
+默认情况下，列都会被划分为同等大小。
+指定列宽：col-10
+有偏移量的网格(列可以设置左侧偏移量):col-offset-10
+纵向对齐网格:col-top col-center col-bottom
+
+
+9.ionic图标
+<i class="icon ion-"></i>
+ion-home
+ion-ios-home ion-ios-home-outline
+ion-android-home
+
+我们可以通过类icon的font-size 来设置图片的大小：
+实例
+.icon {
+   font-size: 50px;
+}
+
+
+二：ionic 插件（ionic指令负责布局和样式，服务负责控制交互）
+
+1.选项卡（tabs）
+<ion-tabs>
+<ion-tab>
+$ionicTabsDelegate
+select(index, [shouldChangeHistory])
+selectedIndex()
+$getByHandle(handle)   <ion-tabs>的delegate-handle属性
+
+2.上拉菜单
+
+
+
+3.侧栏菜单
+
+
+4.加载动画
+<ion-spinner icon="" class="spinner-"></ion-spinner>
+icon:sprial(默认) dubbles circles dots lines android ios ripple cresent 
+class:spinner-balanced spinner-positive spinner-energized
+控制加载动画图标的大小
+.spinner svg {
+  width: 20% !important;
+  heightkortant;
+}
+
+5.轮播
+<ion-slide-box auto-play="true" does-continue="true" active-slide="0" slide-interval="3000" show-pager="true" delegate-handle="" pager-click="" on-page-changed="">
+	<ion-slide></ion-slide>
+</ion-slide-box>
+
+6.可以滚动的容器
+<ion-scroll>
+delegate-handle direction scrollbar-x scrollbar-y zooming min-zoom max-zoom paging
+on-refresh  on-scroll
+
+<ion-infinite-scroll>
+icon (ion-load-d) ion-load-a
+distance
+on-infinite
+例子：
+<ion-infinite-scroll
+  ng-if="moreDataCanBeLoaded()"
+  icon="ion-load-a"
+  on-infinite="loadMoreData()">
+</ion-infinite-scroll>
+
+$ionicScrollDelegate(ion-content ion-scroll)
+scrollTop()
+scrollBottom()
+resize()
+
+7.下拉刷新
+<ion-refresher></ion-refresher>
+pulling-text
+on-refresh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,129 @@
+开始创建对象：
+
+　1.对象字面量。
+
+ var clock={
+  hour:12,
+  minute:10,
+  second:10,
+  showTime:function(){
+   alert(this.hour+":"+this.minute+":"+this.second);
+  }
+ }
+ clock.showTime();//调用
+
+2.创建Object实例
+
+ var clock = new Object();
+ clock.hour=12;
+ clock.minute=10;
+ clock.showHour=function(){alert(clock.hour);};
+
+ clock.showHour();//调用
+
+由此可见 属性是可以动态添加，修改的
+
+ 
+
+对象创建模式：
+
+1.工厂模式：就是一个函数，然后放入参数，返回对象，流水线工作
+
+ function createClock(hour,minute,second){
+  var clock = new Object();
+   clock.hour=hour;
+   clock.minute=minute;
+   clock.second=second;
+   clock.showHour=function(){
+   alert(this.hour+":"+this.minute+":"+this.second);
+  };
+  return clock;
+ };
+ var newClock = createClock(12,12,12);//实例化
+ newClock.showHour();//调用
+
+优点：总算优点抽象的概念了。但是不能识别对象的类型呢！
+
+2.构造函数模式
+
+ function clock(hour,minute,second){
+  this.hour = hour;
+  this.minute = minute;
+  this.second = second;
+  this.showTime = function(){
+   alert(this.hour+":"+this.minute+":"+this.second);
+  }
+ }
+ var newClock =new  clock(12,12,12); 
+ alert(newClock.hour);
+
+ 注意:这个new关键字是必须，如果不加，clock就不会当成构造函数调用，而只是一个普通的函数。同时，还会意外地给他的外部作用域即window添加属性，因为此时构造函数内部的this已经映射到了外部作用域了。所以为了安全起见，可以这样创建
+
+ function clock(hour,minute,second){
+  if(this instanceof clock){
+   this.hour = hour;
+   this.minute = minute;
+   this.second = second;
+   this.showTime = function(){
+    alert(this.hour+":"+this.minute+":"+this.second);
+   }
+  }
+  else{
+   throw new Error("please add 'new' to make a instance");
+  }
+ }
+
+构造函数的缺点：由于this指针在对象实例的时候发生改变指向新的实例。这时新实例的方法也要重新创建，如果n个实例就要n次重建相同的方法。于是让我们来揭开原型模式吧
+
+3.原型模式
+
+  function clock(hour,minute,second){
+ }
+ clock.prototype.hour=12;
+ clock.prototype.minute=12;
+ clock.prototype.second=12;
+ clock.prototype.showTime=function(){
+  alert(this.hour+":"+this.minute+":"+this.second);
+ }
+ var newClock = new clock();
+ newClock.showTime();
+
+深度理解原型模型很重要，
+
+首先，每个函数都有一个prototype(原型)属性，这个指针指向的就是clock.prototype对象。而这个原型对象在默认的时候有一个属性constructor，指向clock，这个属性可读可写。而当我们在实例化一个对象的时候，实例newClock除了具有构造函数定义的属性和方法外（注意，只是构造函数中的）,还有一个指向构造函数的原型的指针，ECMAScript管他叫[[prototype]]，这样实例化对象的时候，原型对象的方法并没有在某个具体的实例中，因为原型没有被实例。（废话有点多，没有误导您吧。别晕）
+
+所以这种模式定义的对象，在调用方法的时候过程：调用newClock.showTime();先看实例中有没有，有调之，无追踪到原型，有调之，无出错，调用失败。
+
+当然可以这样写：
+
+ function clock(hour,minute,second){
+ }
+ clock.prototype={
+  constructor:clock,    //必须手动设置这个属性，不然就断了与构造函数的联系了。没有实例共享原型的意义了。
+  hour:12,
+  minute:12,
+  second:12,
+  showTime:function(){
+   alert(this.hour+":"+this.minute+":"+this.second)
+  }
+ }
+ var newClock = new clock();
+ newClock.showTime();
+
+ 注意：实例与构造函数原型的联系也是通过指针来联系的，故可以动态添加修改原型的方法。
+
+这种纯原型的模式问题也很明显，所有的属性，方法都是共享的，不能让对象具体化。常常我们想每个对象有自己的属性。于是，结合前两种，产生新的模式
+
+4.构造-原型组合模式。
+
+ function clock(hour,minute,second){
+  this.hour = hour;
+  this.minute = minute;
+  this.second = second;
+ }
+ 
+ clock.prototype.showTime=function(){alert(this.hour+":"+this.minute+":"+this.second);}
+ var newClock = new clock(12,12,12);
+ newClock.showTime();
+
+这里我们将属性放在构造函数中，更显得对象的具体性。

@@ -1,0 +1,41 @@
+html--页面基本结构
+css--布局和样式
+js--交互，特效，组件
+
+先知道它是干什么的，然后详细的了解它的特性，再然后深入的了解特性，最后把它用于实践，这才算把它学完。（不做最后一步是典型的耍流氓）
+
+jquery+bootstrap  桌面端网站
+angular+ionic      手机端网站
+
+
+html-->html5   增添了什么特性，在实践中怎么用
+css-->css3     增添了什么特性，在实践中怎么用
+js-->ES6-->typescript 增添了什么特性，在实践中怎么用
+         
+html:
+表单
+表格
+列表
+图像
+
+
+h5:
+
+css:
+盒模型和定位
+选择器
+背景和文本
+常用最佳实践
+
+css3:
+
+
+js:
+js基础语法
+dom对象与事件处理
+js内置对象(Number,String,Boolean,Array,Object,Math,Date,RegExp)
+浏览器内置对象(widow,screen,location,history,navigator,弹窗，计时，cookie)
+js面向对象机制（闭包,原型，作用域）
+
+es6:
+

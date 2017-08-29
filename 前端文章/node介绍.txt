@@ -1,0 +1,41 @@
+http://www.expressjs.com.cn/
+
+http://www.css88.com/nav/
+
+http://www.css88.com/doc/jsdoc/index.html
+http://usejsdoc.org/
+
+http://blog.csdn.net/gebitan505/article/details/46346917
+http://www.cnblogs.com/eaysun/p/5534554.html
+
+Node.js使用事件驱动，非阻塞I/O模型
+
+Nodejs的开发非常高效，而且代码简单，得意于Nodejs的单线程机制。而Nodejs的另一个特点异步编程，让Nodejs处理IO密集型应用有了明显的优势。个人感觉，用Nodejs比Java做Web开发要高效10倍，比PHP的代码还要简单
+
+ebay选择Nodejs的理由，可以归纳为以下4点：
+
+动态语言：开发效率非常高，并有能力构建复杂系统，如ql.io。
+性能和I/O负载：Nodejs非常好的解决了IO密集的问题，通过异步IO来实现。
+连接的内存开销：每个Node.js进程可以支持超过12万活跃的连接，每个连接消耗大约2K的内存。
+操作性：实现了Nodejs对于内存堆栈的监控系统。
+
+1.3. Nodejs不适合的领域
+
+每一种语言或平台都有不擅长领域，对于Nodejs来说最不擅长的领域在于CPU和内存的编程操作。
+
+1. 计算密集型应用，让Javascript和C去拼计算性能，估计是不可能赢的。
+2. 内存控制，让Javascript和Java比较复杂数据类型定义，也是很困难的。因为Javascript的面向对象是基于JSON的，而Java是直接使用内存结构。所以，通过JSON序列化和反序列的过程控制内存，Javascript就已经输了。
+3. 大内存的应用，由于V8引擎有内存设计的限制，32位环境中最大堆是1G，64位环境中最大堆也不到2G，如果要一次读入10G数据，对于Nodejs来说也无法实现。
+4. 静态服务器，虽然Nodejs的优势在IO密集集应用，但是和Nginx的处理静态资源还是有很大的差距。
+5. 不需要异步的应用：比如系统管理，自行化脚本等，还是Python更顺手，Nodejs的异步调用可能会给编程带来一些麻烦。
+
+
+
+
+
+
+
+http://blog.csdn.net/xiaemperor/article/details/38234979
+
+https://www.zhihu.com/question/19653241
+

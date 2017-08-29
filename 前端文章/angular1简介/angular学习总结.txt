@@ -1,0 +1,87 @@
+http://docs.ngnice.com/guide
+
+
+
+
+
+
+1.
+概念	说明
+模板(Template)	带有Angular扩展标记的HTML
+指令(Directive)	用于通过自定义属性和元素扩展HTML的行为
+模型(Model)	用于显示给用户并且与用户互动的数据
+作用域(Scope)	用来存储模型(Model)的语境(context)。模型放在这个语境中才能被控制器、指令和表达式等访问到
+表达式(Expression)	模板中可以通过它来访问作用域（Scope）中的变量和函数
+编译器(Compiler)	用来编译模板(Template)，并且对其中包含的指令(Directive)和表达式(Expression)进行实例化
+过滤器(Filter)	负责格式化表达式(Expression)的值，以便呈现给用户
+视图(View)	用户看到的内容（即DOM）
+数据绑定(Data Binding)	自动同步模型(Model)中的数据和视图(View)表现
+控制器(Controller)	视图(View)背后的业务逻辑
+依赖注入(Dependency Injection)	负责创建和自动装载对象或函数
+注入器(Injector)	用来实现依赖注入(Injection)的容器
+模块(Module)	用来配置注入器
+服务(Service)	独立于视图(View)的、可复用的业务逻辑
+
+
+ng (core module)
+This module is provided by default and contains the core components of AngularJS.
+
+Directives	
+This is the core collection of directives you would use in your template code to build an AngularJS application.
+常见指令（在实践中怎么用）：
+
+Services / Factories	
+This is the core collection of services which are used within the DI of your application.
+常见服务（在实践中怎么用）：
+scope,rootscope,location,http,timeout,intervel，q,animation
+
+
+
+Filters	
+The core filters available in the ng module are used to transform template data before it is rendered within directives and expressions.
+
+
+Global APIs	
+The core global API functions are attached to the angular object. These core functions are useful for low level JavaScript operations within your application.
+
+
+
+
+directive
+restrict:限制指令的用法（E:创建新的组件；A:为html元素增添新的交互功能）
+template/templateURL:指定指令对应的模板
+scope:指定指令的作用域
+link:操纵dom
+controller:作为指令对外的接口
+
+
+
+
+
+
+
+Angular中$broadcast,$emit,$on的使用方法
+http://blog.csdn.net/u014291497/article/details/52268408
+http://www.jb51.net/article/84370.htm
+$scope.$broadcast(eventName,args)
+$scope.$emit(eventName,args)
+$scope.$on(eventName,function(event,data){})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

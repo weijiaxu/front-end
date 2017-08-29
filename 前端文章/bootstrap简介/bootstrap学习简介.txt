@@ -1,0 +1,76 @@
+http://www.runoob.com/bootstrap/bootstrap-tutorial.html
+http://www.runoob.com/jqueryui/jqueryui-tutorial.html
+http://v3.bootcss.com/
+http://www.bootcss.com/p/font-awesome/
+http://www.bootcss.com/p/jquery-ui-bootstrap/
+https://angular-ui.github.io/bootstrap/
+http://www.bootcss.com/p/lesscss/
+http://www.gulpjs.com.cn/docs/api/
+http://codeguide.bootcss.com/
+
+
+http://akveo.com/blur-admin-mint/#/dashboard
+http://docs.ngnice.com/api/ng/directive
+http://showcase.ngnice.com/#/integrated/cart
+
+
+Bootstrap 基本结构、Bootstrap CSS、Bootstrap 布局组件和Bootstrap 插件几个部分
+
+基本结构：Bootstrap 提供了一个带有网格系统、链接样式、背景的基本结构。
+CSS：Bootstrap 自带以下特性：全局的 CSS 设置、定义基本的 HTML 元素样式、可扩展的 class，以及一个先进的网格系统。这将在 
+组件：Bootstrap 包含了十几个可重用的组件，用于创建图像、下拉菜单、导航、警告框、弹出框等等。
+JavaScript 插件：Bootstrap 包含了十几个自定义的 jQuery 插件。您可以直接包含所有的插件，也可以逐个包含这些插件。
+
+支持所有的主流浏览器，移动设备优先,自适应于台式机、平板电脑和手机，为开发人员创建接口提供了一个简洁统一的解决方案，易于定制
+
+
+Bootstrap 布局组件
+1：字体图标
+
+2：下拉菜单(dropdown)---->下拉菜单（Dropdown）JavaScript 插件 
+按钮下拉菜单，导航栏下拉菜单
+
+3:输入框组（表单样式）
+
+4:导航栏（nav）
+导航内容左、右对齐；固定导航栏
+
+
+5：分页(pagination)
+
+6:列表组（list-group）
+
+7:面板（panel）
+
+Bootstrap 插件
+1:下拉菜单（dropdown）
+
+2:滚动监听（scrollspy）
+
+3:模态框（modal）
+
+4:标签页（tab）
+
+5:提示工具（tooltip）
+提示的内容和提示内容出现的位置
+
+6：弹出框（popover）
+
+7:折叠（collapse）
+
+8:轮播（carousel）
+
+9：附加导航（affix）
+
+
+
+
+
+
+
+
+
+
+
+
+

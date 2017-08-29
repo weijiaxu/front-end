@@ -1,0 +1,88 @@
+http://www.imooc.com/learn/156
+http://www.imooc.com/course/list?c=bootstrap
+http://www.expressjs.com.cn/guide/using-template-engines.html
+https://github.com/mysqljs/mysql
+http://blog.csdn.net/gebitan505/article/details/46346917
+
+angular学习内容：
+模块
+路由(分块分层)
+路由间传值
+ajax(http) get post
+常用指令  自定义指令  factory和service的区别
+oclazyload
+
+
+js的三个核心：闭包（面向对象的封装），原型和原型链（面向对象的继承），作用域。
+js事件处理，事件。
+
+css的核心是定位和盒子模型，表现为表单，布局，导航，列表。
+
+onscroll
+onmessage
+为什么mvc不属于23中设计模式
+
+
+http-server
+gulp 插件
+karma jasmine
+protractor
+
+chrome插件batarang
+
+http://jshint.com/
+http://jscs.info/
+
+https://nodeschool.io/zh-cn/
+
+http://sass-lang.com/
+
+
+
+
+
+
+window对象是全局对象
+node_modules放node插件，完成运行，前端自动化，测试等功能
+angular一切从module开始
+ng-bind与ng表达式{{}}的区别
+bootstrap是一个css框架，而不是js框架，因为它的组件和插件功能非常弱
+zen-coding
+html-beauty
+
+jquery操纵dom，angular操纵数据
+
+通过双向数据绑定动态切换样式 例：class="color-{{color}}"
+
+angular-ui
+
+angular的设计理念是构建声明式ui,用指令扩展html.
+
+angular表单验证
+angular datagrid  ngGrid
+
+angular-ui-router angular-ui-bootstrap angular-ui-grid
+
+miaoyueyue
+
+
+
+移动端开发需要注意的问题：
+适配屏幕大小：采用相对单位（相对于屏幕的大小）
+
+
+
+路由（Routing）是由一个 URI（或者叫路径）和一个特定的 HTTP 方法（GET、POST 等）组成的，涉及到应用如何响应客户端对某个网站节点的访问。
+
+每一个路由都可以有一个或者多个处理器函数，当匹配到路由时，这个/些函数将被执行。
+
+路由的定义由如下结构组成：app.METHOD(PATH, HANDLER)。其中，app 是一个 express 实例；METHOD 是某个 HTTP 请求方式中的一个；PATH 是服务器端的路径；HANDLER 是当路由匹配到时需要执行的函数。
+
+
+
+
+
+
+
+
+

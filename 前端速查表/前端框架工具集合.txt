@@ -1,0 +1,61 @@
+1.
+Bootstrap编码规范
+编写灵活、稳定、高质量的 HTML 和 CSS 代码的规范。
+http://codeguide.bootcss.com/
+
+Javascript
+JavaScript 风格指南
+https://www.awesomes.cn/repo/airbnb/javascript
+
+bootstrap可视化布局
+http://www.bootcss.com/p/layoutit/
+bootstrap表单构造器
+http://www.bootcss.com/p/bootstrap-form-builder/
+
+Bootstrap优站精选
+http://expo.bootcss.com/
+
+
+2.npm,bower,yarn
+依赖管理工具
+
+
+3.require.js
+RequireJS is a JavaScript file and module loader. It is optimized for in-browser use, but it can be used in other JavaScript environments, like Rhino and Node
+http://requirejs.org/
+
+4.socket.io
+node.js realtime framework server
+https://socket.io/
+
+
+4.webpack
+Webpack 是当下最热门的前端资源模块化管理和打包工具。它可以将许多松散的模块按照依赖和规则打包成符合生产环境部署的前端资源。
+https://webpack.bootcss.com/concepts/
+
+
+5.gulp
+gulp.js - 基于流(stream)的自动化构建工具。Grunt 采用配置文件的方式执行任务，而 Gulp 一切都通过代码实现。
+http://www.gulpjs.com.cn/docs/api/
+
+
+6.LESS
+一种动态样式语言
+LESS为CSS赋予了动态语言的特性，如变量、继承、运算、函数。LESS既可以在客户端上运行 (支持IE 6+、Webkit、Firefox)，也可以借助Node.js或者Rhino在服务端运行。
+
+
+9.lodash,underscore
+JavaScript工具库
+对集合，数组，函数，对象等的常见操作。
+http://lodashjs.com/
+http://www.bootcss.com/p/underscore/
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+angular1及其常用插件(有什么用，怎么用)：
+
+1：angular
+http://www.ngnice.com/
+https://github.com/angular-ui
+
+后台管理网站模板：
+https://github.com/akveo/blur-admin
+https://github.com/akveo/ng2-admin
+
+移动端hybrid app
+https://github.com/seasonstar/bibi-ionic
+微信前端项目
+https://github.com/seasonstar/bibi-frontend
+//微信小程序商城
+https://github.com/EastWorld/wechat-app-mall
